@@ -1,0 +1,11 @@
+---
+- name: Run show commands
+  ios_command:
+    commands:
+      - show version
+      - show run
+  register: command_output
+
+- name: Set the variable as a global fact
+  set_fact:
+    result: "{{ command_output }}"
